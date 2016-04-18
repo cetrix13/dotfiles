@@ -1,24 +1,26 @@
-function take(){
-    mkdir $1
-    cd $1
-}
-
+# Directories
+alias dotfiles="cd $HOME/dotfiles"
+alias library="cd $HOME/Library"
+alias sites="cd $HOME/html_public"
 
 # Aliases
 alias zshconfig="mvim ~/.zshrc"
 alias vim="mvim"
 alias art="php artisan"
-alias vm="ssh vagrant@127.0.0.1 -p 2222"
 alias ll="ls -lah"
-alias vup="vagrant up"
-alias vdo="vagrant halt"
 alias h="cd ~/"
 
+# Vagrant
+alias v="vagrant global-status"
+alias vup="vagrant up"
+alias vhalt="vagrant halt"
+alias vm="ssh vagrant@127.0.0.1 -p 2222"
+alias vssh="vagrant ssh"
+alias vreload="vagrant reload"
+alias vrebuild="vagrant destroy --force && vagrant up"
 
 # Git 
-function gg(){
-    git commit -a -v -m "$*"
-}
+alias g="git"
 alias gs="git status"
 alias gb="git checkout -b"
 alias ga="git add"
@@ -26,3 +28,11 @@ alias gaa="git add ."
 alias gc="git commit" 
 alias gp="git push"
 alias nah="git reset --hard;git clean -df;"
+function gg(){
+    git commit -a -v -m "$*"
+}
+
+function take(){
+    mkdir $1
+    cd $1
+}
