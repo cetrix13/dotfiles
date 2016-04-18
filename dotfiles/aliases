@@ -1,0 +1,28 @@
+function take(){
+    mkdir $1
+    cd $1
+}
+
+
+# Aliases
+alias zshconfig="mvim ~/.zshrc"
+alias vim="mvim"
+alias art="php artisan"
+alias vm="ssh vagrant@127.0.0.1 -p 2222"
+alias ll="ls -lah"
+alias vup="vagrant up"
+alias vdo="vagrant halt"
+alias h="cd ~/"
+
+
+# Git 
+function gg(){
+    git commit -a -v -m "$*"
+}
+alias gs="git status"
+alias gb="git checkout -b"
+alias ga="git add"
+alias gaa="git add ."
+alias gc="git commit" 
+alias gp="git push"
+alias nah="git reset --hard;git clean -df;"
