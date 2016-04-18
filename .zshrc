@@ -85,6 +85,5 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # Load configuration files
-. ~/bin/dotfiles/aliases
-. ~/bin/dotfiles/config
+. ~/.aliases
 
