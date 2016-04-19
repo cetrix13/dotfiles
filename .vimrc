@@ -42,7 +42,7 @@ set timeout timeoutlen=200 ttimeoutlen=100
 set visualbell                      " don't beep
 set noerrorbells                    " don't beep
 set autowrite                       " Save on buffer switch
-set mouse=a
+set mouse=a                         " Scroll with mouse or touchpad
 let mapleader = ","                 " With a map leader it's possible to do extra key combinations
 let g:mapleader = "," 
 " Change color of numbers column
@@ -105,6 +105,15 @@ nmap <leader>lc :e composer.json<cr>
 
 "-------------Plugins--------------"
 "/
+" Airline 
+"/
+let g:airline_powerline_fonts = 1
+let g:airline_extensions = ['ctrlp', 'nerdtree', 'vim-vinegar']
+let g:airline#extensions#ctrlp#color_template = 'normal'
+let g:airline#extensions#whitespace#checks = [ 'indent', 'trailing', 'long', 'mixed-indent-file']
+"let g:airline#extensions#whitespace#enabled = 1
+
+"/
 "/ CtrlP
 "/
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|vendor'
@@ -151,8 +160,8 @@ nnoremap <leader>d :call pdv#DocumentWithSnip()<CR>
 "-------------Auto-Commands--------------"
 "Automatically source the Vimrc file on save.
 augroup autosourcing
-	autocmd!
-	autocmd BufWritePost .vimrc source %
+    autocmd!
+    autocmd BufWritePost .vimrc source %
 augroup END
 
 " Include automaticaly namespace for a class
@@ -311,7 +320,7 @@ nmap ,2  :call AddDependency()<cr>
 " - press vit to select content of the tag e.g <p> patter </p>
 " - press vat to select content and tag all together
 " - press % to jump to matching bracket or end of block
-" - press :%s/patther/replace/g to replace all occurences
+" - press :%s/pattern/replace/g to replace all occurences
 " - press ggVG + = to autoindent the code
 " - press ctrl + n for autocompletion
 " - press ctrl + x + l in insert mode for a line autocompletion 
@@ -323,3 +332,4 @@ nmap ,2  :call AddDependency()<cr>
 " - press <leader>cu uncomment line or block of code 
 " - press ctrl + e to expand window in split mode 
 " - press <leader>d for a inserting a doc block
+" - press <leader>cd to change working directory to the current one

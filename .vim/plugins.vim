@@ -19,6 +19,8 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'tobyS/pdv'
 Plugin 'tobyS/vmustache'
 Plugin 'SirVer/ultisnips'
+Plugin 'vim-airline/vim-airline'
+
 call vundle#end()            " required
 filetype plugin indent on    " required
 
