@@ -14,6 +14,7 @@ set guioptions-=e                   " Removes GUI tabs from top toolbar
 set guioptions-=r                   " Removes right hand scroll bar
 set guioptions-=l                   " Removes left hand scroll bar
 set guioptions-=L                   " Removes left hand scroll bar in splits
+set nofoldenable                    " Disable folding
 set guioptions-=R                   " Removes right hand scroll bar in splits
 set go-=L                           " Removes left hand scroll bar
 if has("gui_running")
@@ -33,7 +34,7 @@ set backspace=indent,eol,start      " allow backspacing over everything in inser
 set autoindent                      " always set autoindenting on
 set copyindent                      " copy the previous indentation on autoindenting
 set nonumber                        " always show line numbers
-set foldcolumn=1                    " fake custom left padding for each window
+set foldcolumn=2                    " fake custom left padding for each window
 hi foldcolumn guibg=bg
 hi vertsplit guifg=bg guibg=bg
 set ignorecase                      " ignore case when searching
@@ -51,7 +52,7 @@ let g:mapleader = ","
 
 
 
-"-------------Macros--------------"
+"------------Macros--------------"
 let @a = "hello World!"
 
 
@@ -70,6 +71,7 @@ vmap <leader>su ! awk '{ print length(), $0 \| "sort -n \| cut -d\\  -f2-" }'<cr
 nmap <leader>es :e ~/.vim/snippets/
 nmap <leader>ep :e ~/.vim/plugins.vim
 nmap <leader>ev :tabedit ~/.vimrc<cr>
+nmap <leader>et :tabedit ~/.vim/tips.vim<cr>
 " Create/edit file in the current directory
 nmap :ed :edit %:p:h/
 " Insert a new line without going into insert mode
@@ -135,6 +137,13 @@ nmap <D-r> :CtrlPBufTag<cr>
 nmap <D-e> :CtrlPMRUFiles<cr>
 
 "/
+"/ Emmet-vim 
+"/
+let g:user_emmet_leader_key='<C-z>' 
+let g:user_emmet_install_global = 0
+autocmd FileType html,css,php EmmetInstall
+
+"/
 "/ Gpeplace.vim
 "/
 set grepprg=ag
@@ -155,7 +164,6 @@ nnoremap <silent><leader>pf :call PhpCsFixerFixFile()<CR>
 "/
 "/ PDV documentator
 "/
-
 let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
 nnoremap <leader>d :call pdv#DocumentWithSnip()<CR>
 
@@ -327,3 +335,5 @@ nmap ,2  :call AddDependency()<cr>
 " - press ctrl + e to expand window in split mode
 " - press <leader>d for a inserting a doc block
 " - press <leader>cd to change working directory to the current one
+" - press ctrl + ] to jump to the method declaration
+" - press ctrl + z + <leader> to trigger emmet 

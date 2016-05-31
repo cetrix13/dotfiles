@@ -6,6 +6,7 @@ alias sites="cd $HOME/html_public"
 # Aliases
 alias zshconfig="mvim ~/.zshrc"
 alias vi="mvim"
+alias vim="mvim"
 alias art="php artisan"
 alias ll="ls -lah"
 alias h="cd ~/"
