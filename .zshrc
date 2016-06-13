@@ -55,7 +55,7 @@ plugins=(git, sudo)
 # User configuration
 
 #export PATH=/usr/local/php5/bin/php:$PATH
-export PATH="/usr/local/php5/bin/:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/alex/.composer/vendor/bin:./vendor/bin/"
+export PATH="/usr/local/php5/bin/:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/alex/.composer/vendor/bin:./vendor/bin/"
 # export EDITOR='subl -w'
 export EDITOR='mvim'
 source $ZSH/oh-my-zsh.sh

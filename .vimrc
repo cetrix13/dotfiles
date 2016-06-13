@@ -1,15 +1,15 @@
 set nocompatible                    " Make vim modern
 so ~/.vim/plugins.vim               " Load vim plugins
-
-set t_Co=256                        " Use 256 colors. Useful for terminal vim
 set autowriteall                    " Automaticaly saves the files when switching
 set complete=.,w,b,u                " Set outcompletion
 set timeoutlen=3000                 " Set delay for commands
 
 
+
 "-------------Visuals--------------"
 colorscheme atom-dark
-set guifont=Fira_Code:h15
+set t_Co=256                        " Use 256 colors. Useful for terminal vim
+set guifont=Fira_Code:h14           " Set up font and size
 set guioptions-=e                   " Removes GUI tabs from top toolbar
 set guioptions-=r                   " Removes right hand scroll bar
 set guioptions-=l                   " Removes left hand scroll bar
@@ -73,7 +73,7 @@ nmap <leader>ep :e ~/.vim/plugins.vim
 nmap <leader>ev :tabedit ~/.vimrc<cr>
 nmap <leader>et :tabedit ~/.vim/tips.vim<cr>
 " Create/edit file in the current directory
-nmap :ed :edit %:p:h/
+nmap <leader>e :e %:p:h/
 " Insert a new line without going into insert mode
 nmap oo o<Esc>k
 nmap <leader><space> :nohlsearch<cr>
@@ -106,7 +106,7 @@ nmap <leader>lc :e composer.json<cr>
 
 
 
-"-------------Plugins--------------"
+"----------------Plugins---------------"
 "/
 " Airline
 "/
@@ -131,6 +131,8 @@ let g:ctrlp_match_window = 'top,order:ttb,min:1,max:20,results:20'
 " I don't want to pull up these folders/files when calling CtrlP
 set wildignore+=*/vendor/**
 set wildignore+=*/public/forum/**
+set wildignore+=*/node_modules/**
+set wildignore+=*.svg,*.eot,*.woff
 
 nmap <D-p> :CtrlP<cr>
 nmap <D-r> :CtrlPBufTag<cr>
@@ -139,16 +141,30 @@ nmap <D-e> :CtrlPMRUFiles<cr>
 "/
 "/ Emmet-vim 
 "/
-let g:user_emmet_leader_key='<C-z>' 
+let g:user_emmet_leader_key='<C-a>' 
 let g:user_emmet_install_global = 0
-autocmd FileType html,css,php EmmetInstall
+augroup setfiletypes
+    autocmd!
+    autocmd FileType html,css,php EmmetInstall
+augroup END
+
+"/
+"/ Matching tags 
+"/
+let g:mta_filetypes = {
+    \ 'html' : 1,
+    \ 'xhtml' : 1,
+    \ 'xml' : 1,
+    \ 'jinja' : 1,
+    \ 'blade' : 1,
+    \ 'php' : 1,
+    \}
 
 "/
 "/ Gpeplace.vim
 "/
 set grepprg=ag
 let g:grep_cmd_opts = '--line-numbers --noheading'
-" Familiar commands for file/symbol browsing
 
 "/
 "/ NerdTree
@@ -235,7 +251,6 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " Abbreviations
 abbrev pft PHPUnit_Framework_TestCase
-
 abbrev gm !php artisan generate:model
 abbrev gc !php artisan generate:controller
 abbrev gmig !php artisan generate:migration

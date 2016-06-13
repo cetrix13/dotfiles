@@ -24,6 +24,7 @@ Plugin 'tobyS/pdv'
 Plugin 'tobyS/vmustache'
 Plugin 'vim-airline/vim-airline'
 Plugin 'mattn/emmet-vim'
+Plugin 'Valloric/MatchTagAlways'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
