@@ -1,0 +1,13 @@
+[color]
+	# color opts: normal, black, red, green, yellow, blue, magenta, cyan, or white
+	ui = true
+	interactive = auto
+[user]
+	email = DadykinAV@yandex.ru
+	name = Alexandr Dadykin
+[push]
+	default = matching
+[core]
+	editor = subl
+[github]
+	user = cetrix13
