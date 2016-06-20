@@ -3,8 +3,7 @@ so ~/.vim/plugins.vim               " Load vim plugins
 set autowriteall                    " Automaticaly saves the files when switching
 set complete=.,w,b,u                " Set outcompletion
 set timeoutlen=3000                 " Set delay for commands
-
-
+set history=50
 
 "-------------Visuals--------------"
 colorscheme atom-dark
