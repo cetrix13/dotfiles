@@ -138,9 +138,9 @@ nmap <D-r> :CtrlPBufTag<cr>
 nmap <D-e> :CtrlPMRUFiles<cr>
 
 "/
-"/ Emmet-vim 
+"/ Emmet-vim
 "/
-let g:user_emmet_leader_key='<C-a>' 
+let g:user_emmet_leader_key='<C-a>'
 let g:user_emmet_install_global = 0
 augroup setfiletypes
     autocmd!
@@ -148,7 +148,7 @@ augroup setfiletypes
 augroup END
 
 "/
-"/ Matching tags 
+"/ Matching tags
 "/
 let g:mta_filetypes = {
     \ 'html' : 1,
@@ -184,6 +184,11 @@ nnoremap <leader>d :call pdv#DocumentWithSnip()<CR>
 
 
 "-------------Auto-Commands--------------"
+" Remove trailling whitespace on :w
+augroup removetrailingspace
+    autocmd BufWritePre * :%s/\s\+$//e
+augroup END
+
 "Automatically source the Vimrc file on save.
 augroup autosourcing
     autocmd!
@@ -350,4 +355,4 @@ nmap ,2  :call AddDependency()<cr>
 " - press <leader>d for a inserting a doc block
 " - press <leader>cd to change working directory to the current one
 " - press ctrl + ] to jump to the method declaration
-" - press ctrl + z + <leader> to trigger emmet 
+" - press ctrl + z + <leader> to trigger emmet

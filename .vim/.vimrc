@@ -1,19 +1,19 @@
 set nocompatible                    " Make vim modern
 so ~/.vim/plugins.vim               " Load vim plugins
-
-set t_Co=256                       " Use 256 colors. Useful for terminal vim
 set autowriteall                    " Automaticaly saves the files when switching
 set complete=.,w,b,u                " Set outcompletion
 set timeoutlen=3000                 " Set delay for commands
-
+set history=50
 
 "-------------Visuals--------------"
 colorscheme atom-dark
-set guifont=Fira_Code:h15
+set t_Co=256                        " Use 256 colors. Useful for terminal vim
+set guifont=Fira_Code:h14           " Set up font and size
 set guioptions-=e                   " Removes GUI tabs from top toolbar
 set guioptions-=r                   " Removes right hand scroll bar
 set guioptions-=l                   " Removes left hand scroll bar
 set guioptions-=L                   " Removes left hand scroll bar in splits
+set nofoldenable                    " Disable folding
 set guioptions-=R                   " Removes right hand scroll bar in splits
 set go-=L                           " Removes left hand scroll bar
 if has("gui_running")
@@ -42,16 +42,16 @@ set timeout timeoutlen=200 ttimeoutlen=100
 set visualbell                      " don't beep
 set noerrorbells                    " don't beep
 set autowrite                       " Save on buffer switch
-set mouse=a
+set mouse=a                         " Scroll with mouse or touchpad
 let mapleader = ","                 " With a map leader it's possible to do extra key combinations
-let g:mapleader = "," 
+let g:mapleader = ","
 " Change color of numbers column
-hi LineNr guifg=#4B4E4F  
-hi LineNr guibg=bg
+"hi LineNr guifg=#4B4E4F
+"hi LineNr guibg=bg
 
 
 
-"-------------Macros--------------"
+"------------Macros--------------"
 let @a = "hello World!"
 
 
@@ -64,13 +64,15 @@ set incsearch
 
 "----------------Mapping---------------"
 " Visual mode mappings
-vmap <Leader>su ! awk '{ print length(), $0 \| "sort -n \| cut -d\\  -f2-" }'<cr>
+vmap <leader>su ! awk '{ print length(), $0 \| "sort -n \| cut -d\\  -f2-" }'<cr>
 
 " Normal mode mappings
 nmap <leader>es :e ~/.vim/snippets/
+nmap <leader>ep :e ~/.vim/plugins.vim
 nmap <leader>ev :tabedit ~/.vimrc<cr>
+nmap <leader>et :tabedit ~/.vim/tips.vim<cr>
 " Create/edit file in the current directory
-nmap :ed :edit %:p:h/
+nmap <leader>e :e %:p:h/
 " Insert a new line without going into insert mode
 nmap oo o<Esc>k
 nmap <leader><space> :nohlsearch<cr>
@@ -93,17 +95,32 @@ nmap 75 :vertical resize 120<cr>
 nmap <C-b> :NERDTreeToggle<cr>
 "Load the current buffer in Chrome
 nmap ,c :!open -a Google\ Chrome<cr>
-nmap <leader>f :tag 
+nmap <leader>f :tag
 " Laravel framework commons
-nmap <leader><leader>r :e app/Http/routes.php<cr>
-nmap <leader>lca :e app/config/app.php<cr>81Gf(%O
+nmap <leader>lr :e app/Http/routes.php<cr>
+nmap <leader>la :e config/app.php<cr>156Gf(%O
 nmap <leader>lcd :e app/config/database.php<cr>
 nmap <leader><leader>c :CtrlP<cr>app/Http/Controllers/
 nmap <leader>lc :e composer.json<cr>
 
 
 
-"-------------Plugins--------------"
+"----------------Plugins---------------"
+"/
+" Airline
+"/
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#ctrlp#color_template = 'normal'
+let g:airline#extensions#whitespace#checks = ['indent', 'long', 'mixed-indent-file']
+"let g:airline#extensions#whitespace#enabled = 1
+let g:airline_section_z = '%l'
+set laststatus=2   " Always show the statusline
+set encoding=utf-8 " Necessary to show Unicode glyphs
+set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
+" Powerline (Fancy thingy at bottom stuff)
+" let g:Powerline_symbols = 'fancy'
+
+
 "/
 "/ CtrlP
 "/
@@ -113,21 +130,40 @@ let g:ctrlp_match_window = 'top,order:ttb,min:1,max:20,results:20'
 " I don't want to pull up these folders/files when calling CtrlP
 set wildignore+=*/vendor/**
 set wildignore+=*/public/forum/**
+set wildignore+=*/node_modules/**
+set wildignore+=*.svg,*.eot,*.woff
 
 nmap <D-p> :CtrlP<cr>
 nmap <D-r> :CtrlPBufTag<cr>
 nmap <D-e> :CtrlPMRUFiles<cr>
 
 "/
-"/ Auto paring 
+"/ Emmet-vim 
 "/
+let g:user_emmet_leader_key='<C-a>' 
+let g:user_emmet_install_global = 0
+augroup setfiletypes
+    autocmd!
+    autocmd FileType html,css,php EmmetInstall
+augroup END
 
 "/
-"/ Gpeplace.vim 
+"/ Matching tags 
+"/
+let g:mta_filetypes = {
+    \ 'html' : 1,
+    \ 'xhtml' : 1,
+    \ 'xml' : 1,
+    \ 'jinja' : 1,
+    \ 'blade' : 1,
+    \ 'php' : 1,
+    \}
+
+"/
+"/ Gpeplace.vim
 "/
 set grepprg=ag
 let g:grep_cmd_opts = '--line-numbers --noheading'
-" Familiar commands for file/symbol browsing
 
 "/
 "/ NerdTree
@@ -135,7 +171,7 @@ let g:grep_cmd_opts = '--line-numbers --noheading'
 let NERDTreeHijackNetrw = 0
 
 "/
-"/ Php-cs-fixer.vim 
+"/ Php-cs-fixer.vim
 "/
 let g:php_cs_fixer_level = "psr2"
 nnoremap <silent><leader>pf :call PhpCsFixerFixFile()<CR>
@@ -143,7 +179,6 @@ nnoremap <silent><leader>pf :call PhpCsFixerFixFile()<CR>
 "/
 "/ PDV documentator
 "/
-
 let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
 nnoremap <leader>d :call pdv#DocumentWithSnip()<CR>
 
@@ -151,8 +186,8 @@ nnoremap <leader>d :call pdv#DocumentWithSnip()<CR>
 "-------------Auto-Commands--------------"
 "Automatically source the Vimrc file on save.
 augroup autosourcing
-	autocmd!
-	autocmd BufWritePost .vimrc source %
+    autocmd!
+    autocmd BufWritePost .vimrc source %
 augroup END
 
 " Include automaticaly namespace for a class
@@ -204,17 +239,8 @@ map <Leader>t :!phpunit %<cr>
 " Easy motion stuff
 let g:EasyMotion_leader_key = '<Leader>'
 
-" Powerline (Fancy thingy at bottom stuff)
-let g:Powerline_symbols = 'fancy'
-set laststatus=2   " Always show the statusline
-set encoding=utf-8 " Necessary to show Unicode glyphs
-set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
-
 autocmd cursorhold * set nohlsearch
 autocmd cursormoved * set hlsearch
-
-" Remove search results
-command! H let @/=""
 
 " If you prefer the Omni-Completion tip window to close when a selection is
 " made, these lines close it on movement in insert mode or when leaving
@@ -224,7 +250,6 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " Abbreviations
 abbrev pft PHPUnit_Framework_TestCase
-
 abbrev gm !php artisan generate:model
 abbrev gc !php artisan generate:controller
 abbrev gmig !php artisan generate:migration
@@ -233,7 +258,7 @@ abbrev gmig !php artisan generate:migration
 autocmd BufWritePre *.php :%s/\s\+$//e
 
 " Edit todo list for project
-nmap ,todo :e todo.txt<cr>
+nmap <Leader>todo :e todo.txt<cr>
 
 
 " Concept - load underlying class for Laravel
@@ -251,22 +276,22 @@ endfunction
 nmap ,lf :call FacadeLookup()<cr>
 
 
-
+" Prepare a new PHP class
 " Prepare a new PHP class
 function! Class()
     let name = input('Class name? ')
     let namespace = input('Any Namespace? ')
 
     if strlen(namespace)
-        exec 'normal i<?php namespace ' . namespace . ';
+        exec "normal i<?php namespace " . namespace . "; \<C-m>\<C-m>"
     else
-        exec 'normal i<?php
+        exec "normal i<?php \<C-m>"
     endif
 
     " Open class
-    exec 'normal iclass ' . name . ' {^M}^[O^['
-    
-    exec 'normal i^M    public function __construct()^M{^M ^M}^['
+    exec "normal iclass " . name . " {\<C-m>}\<C-[>O\<C-[>"
+
+    exec "normal i\<C-M>    public function __construct()\<C-M>{\<C-M>\<C-M>}\<C-[>"
 endfunction
 nmap ,1  :call Class()<cr>
 
@@ -303,23 +328,26 @@ nmap ,2  :call AddDependency()<cr>
 " - press :tn to go the the next occurence of the method
 " - press :tp to go to the previous occurence of the method
 " - press :ts to select to which occurence of the method to go
-" - press command + k to clean up the screen
 " - press ctrl + w + o to make buffer window in full screen
 " - enter :Gsearch for a global search and replace
-" - enter :Ag 'pattern' for a local search 
+" - enter :Ag 'pattern' for a local search
 " - enter :s/search pattern/replace pattern for a multiple replace
 " - press vit to select content of the tag e.g <p> patter </p>
+" - press cit to change the text between the html tags
 " - press vat to select content and tag all together
 " - press % to jump to matching bracket or end of block
-" - press :%s/patther/replace/g to replace all occurences
+" - press :%s/pattern/replace/g to replace all occurences
 " - press ggVG + = to autoindent the code
 " - press ctrl + n for autocompletion
-" - press ctrl + x + l in insert mode for a line autocompletion 
+" - press ctrl + x + l in insert mode for a line autocompletion
 " - press cst to replace tag without deleting content
-" - press cs'" to replace single quot to double quot 
-" - press S to surround selected text with html tag 
+" - press cs'" to replace single quot to double quot
+" - press S to surround selected text with html tag
 " - press <leader>pf to autoformat the code to psr2
 " - press <leader>cc comment line or block of code
-" - press <leader>cu uncomment line or block of code 
-" - press ctrl + e to expand window in split mode 
+" - press <leader>cu uncomment line or block of code
+" - press ctrl + e to expand window in split mode
 " - press <leader>d for a inserting a doc block
+" - press <leader>cd to change working directory to the current one
+" - press ctrl + ] to jump to the method declaration
+" - press ctrl + z + <leader> to trigger emmet 
