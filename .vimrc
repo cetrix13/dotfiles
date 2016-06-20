@@ -21,6 +21,7 @@ if has("gui_running")
 endif
 set linespace=16
 set showmode                        " always show what mode we're currently editing in
+set showmatch                       " highlights matching brackets
 set nowrap                          " don't wrap lines
 set tabstop=4                       " a tab is four spaces
 set smarttab
@@ -49,7 +50,13 @@ let g:mapleader = ","
 "hi LineNr guifg=#4B4E4F
 "hi LineNr guibg=bg
 
-
+"------------FileTypes--------------"
+au BufNewFile,BufRead *.less set filetype=css
+au BufNewFile,BufRead *.sass set filetype=css
+au BufNewFile,BufRead *.scss set filetype=css
+au BufNewFile,BufRead *.blade.php set filetype=php
+au BufNewFile,BufRead *.json set filetype=js
+au BufNewFile,BufRead *.md set filetype=markdown
 
 "------------Macros--------------"
 let @a = "hello World!"
