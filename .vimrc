@@ -20,7 +20,7 @@ if has("gui_running")
     set macligatures                " We want pretty symbols when available
 endif
 set linespace=16
-set showmode                        " always show what mode we're currently editing in
+set noshowmode                      " hide the default mode text (e.g. -- INSERT -- below the statusline)
 set showmatch                       " highlights matching brackets
 set nowrap                          " don't wrap lines
 set tabstop=4                       " a tab is four spaces
@@ -50,6 +50,8 @@ let g:mapleader = ","
 "hi LineNr guifg=#4B4E4F
 "hi LineNr guibg=bg
 
+
+
 "------------FileTypes--------------"
 au BufNewFile,BufRead *.less set filetype=css
 au BufNewFile,BufRead *.sass set filetype=css
@@ -57,6 +59,8 @@ au BufNewFile,BufRead *.scss set filetype=css
 au BufNewFile,BufRead *.blade.php set filetype=php
 au BufNewFile,BufRead *.json set filetype=js
 au BufNewFile,BufRead *.md set filetype=markdown
+
+
 
 "------------Macros--------------"
 let @a = "hello World!"
@@ -70,6 +74,10 @@ set incsearch
 
 
 "----------------Mapping---------------"
+" Insert mode mappings
+" Easy escaping to normal model
+imap jj <esc>
+
 " Visual mode mappings
 vmap <leader>su ! awk '{ print length(), $0 \| "sort -n \| cut -d\\  -f2-" }'<cr>
 
@@ -77,9 +85,9 @@ vmap <leader>su ! awk '{ print length(), $0 \| "sort -n \| cut -d\\  -f2-" }'<cr
 nmap <leader>es :e ~/.vim/snippets/
 nmap <leader>ep :e ~/.vim/plugins.vim
 nmap <leader>ev :tabedit ~/.vimrc<cr>
-nmap <leader>et :tabedit ~/.vim/tips.vim<cr>
 " Create/edit file in the current directory
-nmap <leader>e :e %:p:h/
+nmap <leader><leader>e :e %:p:h/
+" Create/edit file in the current directory
 " Insert a new line without going into insert mode
 nmap oo o<Esc>k
 nmap <leader><space> :nohlsearch<cr>
@@ -109,6 +117,21 @@ nmap <leader>la :e config/app.php<cr>156Gf(%O
 nmap <leader>lcd :e app/config/database.php<cr>
 nmap <leader><leader>c :CtrlP<cr>app/Http/Controllers/
 nmap <leader>lc :e composer.json<cr>
+" Create split below
+nmap :sp :rightbelow sp<cr>
+" Quickly go forward or backward to buffer
+nmap :bp :BufSurfBack<cr>
+nmap :bn :BufSurfForward<cr>
+" Edit todo list for project
+nmap <Leader>do :e todo.txt<cr>
+nmap ,2  :call AddDependency()<cr>
+" Run PHPUnit tests
+map <Leader>t :!phpunit %<cr>
+" Down is really the next line
+nnoremap j gj
+nnoremap k gk
+"Auto change directory to match current file ,cd
+nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
 
 
 
@@ -123,7 +146,6 @@ let g:airline#extensions#whitespace#checks = ['indent', 'long', 'mixed-indent-fi
 let g:airline_section_z = '%l'
 set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs
-set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 " Powerline (Fancy thingy at bottom stuff)
 " let g:Powerline_symbols = 'fancy'
 
@@ -132,8 +154,8 @@ set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusl
 "/ CtrlP
 "/
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|vendor'
-let g:ctrlp_match_window = 'top,order:ttb,min:1,max:20,results:20'
-
+let g:ctrlp_match_window = 'top,order:ttb,min:1,max:18,results:18'
+let ctrlp_show_hidden = 1
 " I don't want to pull up these folders/files when calling CtrlP
 set wildignore+=*/vendor/**
 set wildignore+=*/public/forum/**
@@ -159,6 +181,7 @@ augroup END
 "/
 let g:mta_filetypes = {
     \ 'html' : 1,
+    \ 'js' : 1,
     \ 'xhtml' : 1,
     \ 'xml' : 1,
     \ 'jinja' : 1,
@@ -218,35 +241,11 @@ endfunction
 autocmd FileType php inoremap <Leader>nf <Esc>:call IPhpExpandClass()<CR>
 autocmd FileType php noremap <Leader>nf :call PhpExpandClass()<CR>
 
-" Down is really the next line
-nnoremap j gj
-nnoremap k gk
-
-"Easy escaping to normal model
-imap jj <esc>
-
-"Auto change directory to match current file ,cd
-nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
-
-
-"Show (partial) command in the status line
-set showcmd
-
-" Create split below
-nmap :sp :rightbelow sp<cr>
-
-" Quickly go forward or backward to buffer
-nmap :bp :BufSurfBack<cr>
-nmap :bn :BufSurfForward<cr>
-
 highlight Search cterm=underline
 
 " Swap files out of the project root
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
-
-" Run PHPUnit tests
-map <Leader>t :!phpunit %<cr>
 
 " Easy motion stuff
 let g:EasyMotion_leader_key = '<Leader>'
@@ -266,11 +265,6 @@ abbrev gm !php artisan generate:model
 abbrev gc !php artisan generate:controller
 abbrev gmig !php artisan generate:migration
 
-" Auto-remove trailing spaces
-autocmd BufWritePre *.php :%s/\s\+$//e
-
-" Edit todo list for project
-nmap <Leader>todo :e todo.txt<cr>
 
 
 " Concept - load underlying class for Laravel
@@ -288,7 +282,6 @@ endfunction
 nmap ,lf :call FacadeLookup()<cr>
 
 
-" Prepare a new PHP class
 " Prepare a new PHP class
 function! Class()
     let name = input('Class name? ')
@@ -331,7 +324,7 @@ function! AddDependency()
     " Remove opening comma if there is only one dependency
     exec 'normal :%s/(, /(/g'
 endfunction
-nmap ,2  :call AddDependency()<cr>
+
 
 "-------------Tips and tricks--------------"
 " - press zz to instanstly postions cursor in the center
@@ -362,4 +355,4 @@ nmap ,2  :call AddDependency()<cr>
 " - press <leader>d for a inserting a doc block
 " - press <leader>cd to change working directory to the current one
 " - press ctrl + ] to jump to the method declaration
-" - press ctrl + z + <leader> to trigger emmet
+" - press ctrl + a + <leader> to trigger emmet
