@@ -1,0 +1,66 @@
+{
+	"auto_close_tags": true,
+	"auto_match_enabled": true,
+	"caret_style": "phase",
+	"close_windows_when_empty": true,
+	"color_scheme": "Packages/Jeffrey Way Theme/schemes/Facebook.tmTheme",
+	"detect_indentation": true,
+	"ensure_newline_at_eof_on_save": true,
+	"file_exclude_patterns":
+	[
+		"._*",
+		".DS_Store",
+		".log",
+		"*.sublime-workspace",
+		"*.scssc",
+		"*min.css",
+		"*min.js",
+		"*css.map"
+	],
+	"folder_exclude_patterns":
+	[
+		".bundle",
+		".git",
+		".sass-cache",
+		".svn",
+		".vendor"
+	],
+	"font_face": "FiraCode-Medium",
+	"font_size": 12,
+	"highlight_line": true,
+	"highlight_modified_tabs": true,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"indent_guide_options":
+	[
+		"draw_normal",
+		"draw_active"
+	],
+	"line_padding_bottom": 4,
+	"line_padding_top": 4,
+	"margin": 0,
+	"match_brackets": true,
+	"match_brackets_braces": true,
+	"match_brackets_content": true,
+	"match_brackets_square": true,
+	"match_tags": true,
+	"material_theme_small_statusbar": true,
+	"open_files_in_new_window": false,
+	"overlay_scroll_bars": "enabled",
+	"remember_open_files": false,
+	"rulers":
+	[
+		82
+	],
+	"show_encoding": true,
+	"show_full_path": true,
+	"show_line_endings": true,
+	"tab_size": 4,
+
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true,
+	"use_tab_stops": true,
+	"word_wrap": false
+}
