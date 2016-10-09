@@ -8,7 +8,7 @@ set history=50
 "-------------Visuals--------------"
 colorscheme atom-dark
 set t_Co=256                        " Use 256 colors. Useful for terminal vim
-set guifont=Fira_Code:h14           " Set up font and size
+set guifont=Fira_Code:h15           " Set up font and size
 set guioptions-=e                   " Removes GUI tabs from top toolbar
 set guioptions-=r                   " Removes right hand scroll bar
 set guioptions-=l                   " Removes left hand scroll bar
@@ -19,7 +19,7 @@ set go-=L                           " Removes left hand scroll bar
 if has("gui_running")
     set macligatures                " We want pretty symbols when available
 endif
-set linespace=16
+set linespace=18
 set noshowmode                      " hide the default mode text (e.g. -- INSERT -- below the statusline)
 set showmatch                       " highlights matching brackets
 set nowrap                          " don't wrap lines
@@ -32,6 +32,7 @@ set shiftwidth=4                    " number of spaces to use for autoindenting
 set shiftround                      " use multiple of shiftwidth when indenting with '<' and '>'
 set backspace=indent,eol,start      " allow backspacing over everything in insert mode
 set autoindent                      " always set autoindenting on
+set smartindent                     " turn on autoindenting of blocks
 set copyindent                      " copy the previous indentation on autoindenting
 set nonumber                        " always show line numbers
 set foldcolumn=2                    " fake custom left padding for each window
@@ -50,13 +51,31 @@ let g:mapleader = ","
 "hi LineNr guifg=#4B4E4F
 "hi LineNr guibg=bg
 
+"-------------Search--------------"
+set hlsearch
+set incsearch
 
+"-------------Easy Motion--------------"
+" <Leader>f{char} to move to {char}
+map  <Leader>F <Plug>(easymotion-bd-f)
+nmap <Leader>F <Plug>(easymotion-overwin-f)
+
+" s{char}{char} to move to {char}{char}
+nmap s <Plug>(easymotion-overwin-f2)
+
+" Move to line
+map <Leader>L <Plug>(easymotion-bd-jk)
+nmap <Leader>L <Plug>(easymotion-overwin-line)
+
+" Move to word
+map  <Leader>W <Plug>(easymotion-bd-w)
+nmap <Leader>W <Plug>(easymotion-overwin-w)
 
 "------------FileTypes--------------"
 au BufNewFile,BufRead *.less set filetype=css
 au BufNewFile,BufRead *.sass set filetype=css
 au BufNewFile,BufRead *.scss set filetype=css
-au BufNewFile,BufRead *.blade.php set filetype=php
+au BufNewFile,BufRead *.blade.php set filetype=html
 au BufNewFile,BufRead *.json set filetype=js
 au BufNewFile,BufRead *.md set filetype=markdown
 
@@ -67,9 +86,6 @@ let @a = "hello World!"
 
 
 
-"-------------Search--------------"
-set hlsearch
-set incsearch
 
 
 
@@ -132,7 +148,10 @@ nnoremap j gj
 nnoremap k gk
 "Auto change directory to match current file ,cd
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
-
+"Search smarter
+nnoremap / /\v
+"And no shift magic on comments
+nnoremap <silent> >> :call ShiftLine()<CR>|
 
 
 "----------------Plugins---------------"
@@ -232,6 +251,12 @@ function! IPhpInsertUse()
 endfunction
 autocmd FileType php inoremap <Leader>n <Esc>:call IPhpInsertUse()<CR>
 autocmd FileType php noremap <Leader>n :call PhpInsertUse()<CR>
+
+function! ShiftLine()
+    set nosmartindent
+    normal! >>
+    set smartindent
+endfunction
 
 " Include automaticaly full namespace for a class
 function! IPhpExpandClass()

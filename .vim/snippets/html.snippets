@@ -6,12 +6,15 @@ snippet doc
 			<title>Document</title>
 		</head>
 		<body>
-			
+
 		</body>
 	</html>
 
 snippet input
-	<input type="text" name="#" placeholder="#">
+	<div class="form-group">
+		<label for="${1:id}">${2:Label Title}</label>
+		<input type="text" class="form-control" name="$1" id="$1" value="{{old('$1')}}">
+	</div>
+
 snippet jquery
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
-	

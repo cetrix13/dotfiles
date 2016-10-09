@@ -6,37 +6,37 @@ snippet pmet
 	protected function ${1}(){
 		${2}
 	}
-	
+
 snippet smet
 	public static function ${1}(){
 		${2}
 	}
-	
+
 snippet rg
 	Route::get('${1}', '${2}');
-	
+
 snippet rp
 	Route::post('${1}', '${2}');
 
 snippet rr
 	Route::resource('${1}', '${2}');
-	
+
 snippet $
 	$this->${1}
-	
-snippet input
-    <div class="form-group">
-        <label for="${1}">${2}</label>
-        <input type="text" class="form-control" name="${1}" id="${1}" value="">
-    </div>
+
+snippet /**
+	/**
+	* ${1:[description]}
+	* @return ${2:[type]} ${3:[description]}
+	*/
 
 snippet link
 	<link rel="stylesheet" href="${1}">
 snippet bootstrapcss
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 snippet bootstrapjs
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 snippet vuejs
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.21/vue.min.js"></script>
-snippet script 
+snippet script
 	<script src="${1}"></script>
