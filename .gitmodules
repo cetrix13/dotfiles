@@ -7,3 +7,6 @@
 [submodule ".vim/bundle/MatchTagAlways"]
 	path = .vim/bundle/MatchTagAlways
 	url = git@github.com:Valloric/MatchTagAlways.git'
+[submodule ".vim/bundle/greplace.vim"]
+	path = .vim/bundle/greplace.vim
+	url = git@github.com:skwp/greplace.git'
