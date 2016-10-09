@@ -1,0 +1,25 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"AdvancedNewFile",
+		"AutoFileName",
+		"Blade Snippets",
+		"Bootstrap 3 Snippets",
+		"DocBlockr",
+		"Emmet",
+		"HTML Boilerplate",
+		"jQuery Snippets pack",
+		"Laravel Blade Highlighter",
+		"Material Theme",
+		"Nettuts+ Fetch",
+		"Package Control",
+		"Sass",
+		"SideBarEnhancements",
+		"SyncedSidebarBg",
+		"Theme - Cobalt2"
+	]
+}

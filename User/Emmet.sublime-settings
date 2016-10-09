@@ -1,0 +1,28 @@
+{
+    "snippets": {
+
+        "css": {
+            "snippets": {
+                "mza": "margin: 0 auto;",
+                ";bef": ":before {$1}",
+                ";aft": ":after {$1}",
+                ";fch": ":first-child {$1}",
+                ";lch": ":last-child {$1}",
+                ";och": ":only-child {$1}",
+                ";oot": ":only-of-type {$1}",
+                ";fot": ":first-of-type {$1}",
+                ";nch": ":nth-child($1) {$2}",
+                ";nlc": ":nth-last-child($1) {$2}",
+                ";not": ":nth-of-type($1) {$2}",
+                ";nlt": ":nth-last-of-type($1) {$2}"
+            }
+        },
+        "html": {
+            "snippets": {
+                "bootstrapcss": "<link rel=\"stylesheet\" type=\"tex/css\" href=\"//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css\" >",
+                "bootstrapjs": "<script src=\"//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js\"></script>",
+                "jquery": "<script src=\"//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js\"></script>"
+            }
+        }
+    }
+}
