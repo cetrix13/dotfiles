@@ -1,66 +1,50 @@
 {
-	"auto_close_tags": true,
 	"auto_match_enabled": true,
+	"bold_folder_labels": true,
 	"caret_style": "phase",
 	"close_windows_when_empty": true,
-	"color_scheme": "Packages/Jeffrey Way Theme/schemes/Facebook.tmTheme",
+	"color_scheme": "Packages/Material Theme/schemes/Material-Theme.tmTheme",
 	"detect_indentation": true,
-	"ensure_newline_at_eof_on_save": true,
 	"file_exclude_patterns":
 	[
 		"._*",
 		".DS_Store",
-		".log",
-		"*.sublime-workspace",
-		"*.scssc",
-		"*min.css",
-		"*min.js",
-		"*css.map"
+		".log"
 	],
-	"folder_exclude_patterns":
+	"folders_exclude_patterns":
 	[
 		".bundle",
 		".git",
 		".sass-cache",
 		".svn",
-		".vendor"
+		".vendor",
+		"node_modules"
 	],
-	"font_face": "FiraCode-Medium",
-	"font_size": 12,
+	"font_face": "Fira Code",
+	"font_size": 15,
 	"highlight_line": true,
-	"highlight_modified_tabs": true,
+	"hot_exit": false,
 	"ignored_packages":
 	[
-		"Vintage"
 	],
-	"indent_guide_options":
-	[
-		"draw_normal",
-		"draw_active"
-	],
-	"line_padding_bottom": 4,
-	"line_padding_top": 4,
+	"line_padding_bottom": 9,
+	"line_padding_top": 9,
 	"margin": 0,
 	"match_brackets": true,
-	"match_brackets_braces": true,
-	"match_brackets_content": true,
-	"match_brackets_square": true,
 	"match_tags": true,
-	"material_theme_small_statusbar": true,
-	"open_files_in_new_window": false,
 	"overlay_scroll_bars": "enabled",
 	"remember_open_files": false,
 	"rulers":
 	[
-		82
+		120
 	],
-	"show_encoding": true,
-	"show_full_path": true,
-	"show_line_endings": true,
 	"tab_size": 4,
-
+	"theme": "Material-Theme.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
+	"use_simple_full_screen": true,
 	"use_tab_stops": true,
+	"vintage_ctrl_keys": true,
+	"vintage_start_in_command_mode": true,
 	"word_wrap": false
 }

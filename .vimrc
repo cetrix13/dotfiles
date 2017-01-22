@@ -55,21 +55,6 @@ let g:mapleader = ","
 set hlsearch
 set incsearch
 
-"-------------Easy Motion--------------"
-" <Leader>f{char} to move to {char}
-map  <Leader>F <Plug>(easymotion-bd-f)
-nmap <Leader>F <Plug>(easymotion-overwin-f)
-
-" s{char}{char} to move to {char}{char}
-nmap s <Plug>(easymotion-overwin-f2)
-
-" Move to line
-map <Leader>L <Plug>(easymotion-bd-jk)
-nmap <Leader>L <Plug>(easymotion-overwin-line)
-
-" Move to word
-map  <Leader>W <Plug>(easymotion-bd-w)
-nmap <Leader>W <Plug>(easymotion-overwin-w)
 
 "------------FileTypes--------------"
 au BufNewFile,BufRead *.less set filetype=css
@@ -80,12 +65,8 @@ au BufNewFile,BufRead *.json set filetype=js
 au BufNewFile,BufRead *.md set filetype=markdown
 
 
-
 "------------Macros--------------"
 let @a = "hello World!"
-
-
-
 
 
 
@@ -142,7 +123,8 @@ nmap :bn :BufSurfForward<cr>
 nmap <Leader>do :e todo.txt<cr>
 nmap ,2  :call AddDependency()<cr>
 " Run PHPUnit tests
-map <Leader>t :!phpunit %<cr>
+nmap <Leader>t :!phpunit --colors=always<cr>
+nmap <Leader>m yiw:!phpunit --colors=always --filter ^R"<cr>
 " Down is really the next line
 nnoremap j gj
 nnoremap k gk
@@ -161,6 +143,7 @@ nnoremap <silent> >> :call ShiftLine()<CR>|
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#ctrlp#color_template = 'normal'
 let g:airline#extensions#whitespace#checks = ['indent', 'long', 'mixed-indent-file']
+let g:airline#extensions#ctrlp#color_template = 'normal'
 "let g:airline#extensions#whitespace#enabled = 1
 let g:airline_section_z = '%l'
 set laststatus=2   " Always show the statusline
@@ -184,6 +167,26 @@ set wildignore+=*.svg,*.eot,*.woff
 nmap <D-p> :CtrlP<cr>
 nmap <D-r> :CtrlPBufTag<cr>
 nmap <D-e> :CtrlPMRUFiles<cr>
+
+
+"/
+"/ Easy Motion
+"/
+" <Leader>f{char} to move to {char}
+map  <Leader>F <Plug>(easymotion-bd-f)
+nmap <Leader>F <Plug>(easymotion-overwin-f)
+
+" s{char}{char} to move to {char}{char}
+nmap s <Plug>(easymotion-overwin-f2)
+
+" Move to line
+map <Leader>L <Plug>(easymotion-bd-jk)
+nmap <Leader>L <Plug>(easymotion-overwin-line)
+
+" Move to word
+map  <Leader>W <Plug>(easymotion-bd-w)
+nmap <Leader>W <Plug>(easymotion-overwin-w)
+
 
 "/
 "/ Emmet-vim
