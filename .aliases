@@ -7,9 +7,11 @@ alias sites="cd $HOME/html_public"
 alias zshconfig="mvim ~/.zshrc"
 alias vim="mvim"
 alias art="php artisan"
+alias tinker="php artisan tinker"
 alias migrate="php artisan migrate"
 alias ll="ls -lah"
 alias h="cd ~/"
+alias serve='php ./artisan serve & open -b com.google.Chrome http://127.0.0.1:8000'
 
 # Vagrant
 alias v="vagrant global-status"
@@ -26,6 +28,21 @@ alias hhalt="homestead halt"
 alias hssh="homestead ssh"
 alias hreload="homestead provision"
 
+# Composer
+alias ci="composer install"
+alias cu="composer update"
+alias cdu="composer dump-autoload"
+alias cr="composer require"
+alias crd="composer require --dev"
+alias cgu="composer global update"
+alias cgr="composer global require"
+
+## Yarn
+alias ya="yarn add"
+alias yad="yarn add --dev"
+alias yi="yarn install"
+alias yu="yarn update"
+
 # Git
 alias g="git"
 alias gs="git status"
@@ -36,6 +53,7 @@ alias gaa="git add ."
 alias gc="git commit"
 alias gp="git push"
 alias nah="git reset --hard;git clean -df;"
+alias gac='git add . && git commit -m'
 alias gd='git diff'
 alias gl='git log'
 alias glo='git log --oneline'
