@@ -8,6 +8,7 @@
 [push]
 	default = matching
 [core]
-	editor = subl
+	autocrlf = input
+	editor = subl -n -w
 [github]
 	user = cetrix13
