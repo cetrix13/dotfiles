@@ -5,14 +5,29 @@ export ZSH=/Users/alex/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+ZSH_THEME="cloud"
 
+# Powerline-shell settings
+function powerline_precmd() {
+    PS1="$(powerline-shell --shell zsh $?)"
+}
+function install_powerline_precmd() {
+  for s in "${precmd_functions[@]}"; do
+    if [ "$s" = "powerline_precmd" ]; then
+      return
+    fi
+  done
+  precmd_functions+=(powerline_precmd)
+}
+if [ "$TERM" != "linux" ]; then
+    install_powerline_precmd
+fi
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+HYPHEN_INSENSITIVE="true"
 DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
@@ -41,7 +56,7 @@ export UPDATE_ZSH_DAYS=30
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
+ HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -51,16 +66,18 @@ export UPDATE_ZSH_DAYS=30
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-plugins=(git, sudo)
+plugins=(osx git sudo)
 
 # User configuration
 
 #export PATH=/usr/local/php5/bin/php:$PATH
-export PATH="/usr/local/php5/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/alex/.composer/vendor/bin:./vendor/bin"
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/alex/.composer/vendor/bin:./vendor/bin:./node_modules/.bin:/Users/alex/npm/bin"
 # export EDITOR='subl -w'
 export EDITOR='mvim'
 source $ZSH/oh-my-zsh.sh
-
+# Set personal aliases
+source ~/.aliases
+eval "$(rbenv init -)"
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
@@ -77,14 +94,4 @@ source $ZSH/oh-my-zsh.sh
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-# Load configuration files
-. ~/.aliases
 
