@@ -12,6 +12,7 @@ alias migrate="php artisan migrate"
 alias ll="ls -lah"
 alias h="cd ~/"
 alias serve='php ./artisan serve & open -b com.google.Chrome http://127.0.0.1:8000'
+alias pserve='open http://localhost:8000 && python -m SimpleHTTPServer'
 
 # Vagrant
 alias v="vagrant global-status"
