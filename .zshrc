@@ -1,5 +1,5 @@
-# Path to your oh-my-zsh installation
 export ZSH=/Users/alex/.oh-my-zsh
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/alex/.composer/vendor/bin:./vendor/bin:./node_modules/.bin:/Users/alex/npm/bin"
 ZSH_THEME="cloud"
 
 # Powerline-shell settings
@@ -18,7 +18,6 @@ if [ "$TERM" != "linux" ]; then
     install_powerline_precmd
 fi
 
-# Some other settings
 setopt nolog
 setopt completeinword
 HYPHEN_INSENSITIVE="true"
@@ -33,7 +32,6 @@ HIST_STAMPS="dd.mm.yyyy"
 plugins=(osx sudo)
 
 # User configuration
-export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/alex/.composer/vendor/bin:./vendor/bin:./node_modules/.bin:/Users/alex/npm/bin"
 export EDITOR='mvim' # export EDITOR='subl -w'
 source $ZSH/oh-my-zsh.sh
 # Set personal aliases
