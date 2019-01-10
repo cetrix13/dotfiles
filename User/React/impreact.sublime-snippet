@@ -1,6 +1,6 @@
 <snippet>
     <content><![CDATA[import React, { Component } from 'react';
-    import reactDOM from 'react-dom'; ]]></content>
+import reactDOM from 'react-dom'; ]]></content>
     <!-- Optional: Tab trigger to activate the snippet -->
     <tabTrigger>impreact</tabTrigger>
     <!-- Optional: Scope the tab trigger will be active in -->
