@@ -1,0 +1,9 @@
+<snippet>
+    <content><![CDATA[import React, { Component } from 'react';
+    import reactDOM from 'react-dom'; ]]></content>
+    <!-- Optional: Tab trigger to activate the snippet -->
+    <tabTrigger>impreact</tabTrigger>
+    <!-- Optional: Scope the tab trigger will be active in -->
+    <scope>source.js</scope>
+    <description>Imports React, React.Component to project</description>
+</snippet>

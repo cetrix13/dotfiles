@@ -4,6 +4,7 @@
         super(props);
 
     }
+
     render() {
         return (${2:<div />})
     }
