@@ -29,7 +29,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 HIST_STAMPS="dd.mm.yyyy"
 # ZSH_CUSTOM=/path/to/new-custom-folder
-plugins=(osx sudo)
+plugins=(osx git sudo)
 
 # User configuration
 export EDITOR='mvim' # export EDITOR='subl -w'
