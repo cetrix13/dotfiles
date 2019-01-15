@@ -19,7 +19,7 @@ set go-=L                           " Removes left hand scroll bar
 if has("gui_running")
     set macligatures                " We want pretty symbols when available
 endif
-set linespace=18
+set linespace=16
 set noshowmode                      " hide the default mode text (e.g. -- INSERT -- below the statusline)
 set showmatch                       " highlights matching brackets
 set nowrap                          " don't wrap lines
@@ -128,13 +128,16 @@ nmap <Leader>m yiw:!phpunit --colors=always --filter ^R"<cr>
 " Down is really the next line
 nnoremap j gj
 nnoremap k gk
-"Auto change directory to match current file ,cd
+" Auto change directory to match current file ,cd
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
-"Search smarter
+" Search smarter
 nnoremap / /\v
 "And no shift magic on comments
 nnoremap <silent> >> :call ShiftLine()<CR>|
-
+" Delete word under cursor
+nmap <leader><leader>d daw
+" Replace word under cursor
+nmap <leader><leader>c caw
 
 "----------------Plugins---------------"
 "/
@@ -173,19 +176,19 @@ nmap <D-e> :CtrlPMRUFiles<cr>
 "/ Easy Motion
 "/
 " <Leader>f{char} to move to {char}
-map  <Leader>F <Plug>(easymotion-bd-f)
-nmap <Leader>F <Plug>(easymotion-overwin-f)
+map  <leader><leader>f <Plug>(easymotion-bd-f)
+nmap <leader><leader>f <Plug>(easymotion-overwin-f)
 
 " s{char}{char} to move to {char}{char}
 nmap s <Plug>(easymotion-overwin-f2)
 
 " Move to line
-map <Leader>L <Plug>(easymotion-bd-jk)
-nmap <Leader>L <Plug>(easymotion-overwin-line)
+map <leader><leader>l <Plug>(easymotion-bd-jk)
+nmap <leader><leader>l <Plug>(easymotion-overwin-line)
 
 " Move to word
-map  <Leader>W <Plug>(easymotion-bd-w)
-nmap <Leader>W <Plug>(easymotion-overwin-w)
+map  <leader><leader>w <Plug>(easymotion-bd-w)
+nmap <leader><leader>w <Plug>(easymotion-overwin-w)
 
 
 "/
