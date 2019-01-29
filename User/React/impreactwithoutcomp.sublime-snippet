@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[import React from 'react';
+    <!-- Optional: Tab trigger to activate the snippet -->
+    <tabTrigger>impreactwithoutcomp</tabTrigger>
+    <!-- Optional: Scope the tab trigger will be active in -->
+    <scope>source.js</scope>
+    <description>Imports only React to project</description>
+</snippet>

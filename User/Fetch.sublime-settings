@@ -6,7 +6,7 @@
 	},
 	"packages":
 	{
-        "bootstrap": "https://github.com/twbs/bootstrap/archive/v4.2.1.zip",
+		"bootstrap": "https://github.com/twbs/bootstrap/archive/v4.2.1.zip",
 		"html5_boilerplate": "https://github.com/h5bp/html5-boilerplate/releases/download/6.1.0/html5-boilerplate_v6.1.0.zip"
 	}
 }
