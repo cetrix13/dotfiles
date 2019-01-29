@@ -17,7 +17,7 @@ set nofoldenable                    " Disable folding
 set guioptions-=R                   " Removes right hand scroll bar in splits
 set go-=L                           " Removes left hand scroll bar
 if has("gui_running")
-    set macligatures                " We want pretty symbols when available
+    "set macligatures                " We want pretty symbols when available
 endif
 set linespace=16
 set noshowmode                      " hide the default mode text (e.g. -- INSERT -- below the statusline)
