@@ -1,12 +1,20 @@
 {
 	"files":
 	{
+		"babelrc": "https://gist.githubusercontent.com/cetrix13/05e4a4e8e3ab3871e6da38cb02a75ccd/raw/d75117d4437d38f8badf91fd80e90daf8898b207/.babelrc",
+		"bulma": "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.css",
+		"bulmamap": "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.css.map",
+		"eslint": "https://gist.githubusercontent.com/cetrix13/53f595678057c3f3ae2b85c027356fe0/raw/aadb7ec0b6673faf779aa09c7a2e53377192f21b/.eslintrc.js",
+		"gulpfile-config": "https://gist.githubusercontent.com/cetrix13/1230917d3cc5fef873e50ec251dc307d/raw/c17c84b307efdfc13ec41d608f8222391f498a1d/gulpfile.js",
+		"html5_boilerplate": "https://raw.githubusercontent.com/h5bp/html5-boilerplate/master/dist/index.html",
 		"jquery": "https://code.jquery.com/jquery-3.3.1.min.js",
-
+		"vuejs": "https://cdn.jsdelivr.net/npm/vue/dist/vue.js",
+		"webpack-config": "https://gist.githubusercontent.com/cetrix13/549791ceba3df897c27c8328a00cdb2e/raw/4e00b9a4abe893536f7be3497a51410324b2f67a/webpack.config.js"
 	},
 	"packages":
 	{
 		"bootstrap": "https://github.com/twbs/bootstrap/archive/v4.2.1.zip",
+		"foundation": "https://registry.npmjs.org/foundation/-/foundation-4.2.1-1.tgz",
 		"html5_boilerplate": "https://github.com/h5bp/html5-boilerplate/releases/download/6.1.0/html5-boilerplate_v6.1.0.zip"
 	}
 }

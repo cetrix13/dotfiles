@@ -1,12 +1,13 @@
 <snippet>
     <content><![CDATA[class ${1:className} extends React.Component {
-    consturctor(props) {
+    constructor(props) {
         super(props);
 
+        ${2: // Code here}
     }
 
     render() {
-        return (${2:<div />})
+        return (${3:<div />})
     }
 }
 ]]></content>

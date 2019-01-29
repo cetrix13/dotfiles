@@ -1,8 +1,8 @@
 <snippet>
-    <content><![CDATA[import React from 'react';
+    <content><![CDATA[export default ${1:ComponentName}]]></content>
     <!-- Optional: Tab trigger to activate the snippet -->
-    <tabTrigger>impreactwithoutcomp</tabTrigger>
+    <tabTrigger>exdef</tabTrigger>
     <!-- Optional: Scope the tab trigger will be active in -->
     <scope>source.js</scope>
-    <description>Imports only React to project</description>
+    <description>Export default model</description>
 </snippet>

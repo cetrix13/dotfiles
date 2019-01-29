@@ -5,6 +5,7 @@
 	"close_windows_when_empty": true,
 	"color_scheme": "Packages/Material Theme/schemes/Material-Theme.tmTheme",
 	"detect_indentation": true,
+	"ensure_newline_at_eof_on_save": true,
 	"file_exclude_patterns":
 	[
 		"._*",
@@ -27,18 +28,21 @@
 	"ignored_packages":
 	[
 	],
-	"line_padding_bottom": 9,
-	"line_padding_top": 9,
+	"line_padding_bottom": 5,
+	"line_padding_top": 5,
 	"margin": 0,
 	"match_brackets": true,
 	"match_tags": true,
 	"overlay_scroll_bars": "enabled",
+	"phpunit-sublime-terminal": "iTerm",
+	"remember_full_screen": true,
 	"remember_open_files": false,
 	"rulers":
 	[
 		120
 	],
 	"tab_size": 4,
+	"tab_small": false,
 	"theme": "Material-Theme.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,

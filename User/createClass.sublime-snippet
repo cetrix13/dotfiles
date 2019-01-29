@@ -1,0 +1,18 @@
+<snippet>
+    <content><![CDATA[
+var ${1:className} = React.createClass({
+
+    render: function(){
+        return (
+            <div />
+        );
+    }
+});
+
+React.render(<${1:className} />, document.body);
+]]></content>
+    <tabTrigger>createClass</tabTrigger>
+    <description>React.CreateClass</description>
+
+    <!-- <scope>source.python</scope> -->
+</snippet>

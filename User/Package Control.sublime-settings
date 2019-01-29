@@ -1,4 +1,5 @@
 {
+	"auto_upgrade": false,
 	"bootstrapped": true,
 	"in_process_packages":
 	[
@@ -6,20 +7,31 @@
 	"installed_packages":
 	[
 		"AdvancedNewFile",
-		"AutoFileName",
-		"Blade Snippets",
-		"Bootstrap 3 Snippets",
+		"Babel",
+		"babel-sublime",
+		"Colorsublime",
 		"DocBlockr",
 		"Emmet",
-		"HTML Boilerplate",
-		"jQuery Snippets pack",
+		"Facebook Material Theme",
+		"HTMLBeautify",
 		"Laravel Blade Highlighter",
+		"LiveReload",
 		"Material Theme",
 		"Nettuts+ Fetch",
+		"Oceanic Next Color Scheme",
 		"Package Control",
-		"Sass",
+		"PackageResourceViewer",
+		"PHP Companion",
 		"SideBarEnhancements",
-		"SyncedSidebarBg",
-		"Theme - Cobalt2"
+		"SnippetMaker",
+		"SublimeLinter",
+		"SublimeLinter-phpcs",
+		"Syntax Highlighting for Sass",
+		"TypeScript Syntax",
+		"Vue Syntax Highlight"
+	],
+	"repositories":
+	[
+		"https://github.com/babel/babel-sublime"
 	]
 }
